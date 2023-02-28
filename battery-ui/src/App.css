@@ -49,12 +49,6 @@
   padding: 15vmin 0;
 }
 
-@media screen and (max-width: 795px) {
-  .temp-container {
-    top: 100%;
-  }
-}
-
 .live-value {
   position: relative;
 

@@ -11,22 +11,14 @@ interface LogoProps {
 
 const RedbackLogo = ({ open, setOpen }: LogoProps) => {
 
-  const {windowHeight, windowWidth, logoDimensions, scale} = useContext(DimContext)
-
-  const sideOpen = {
-    scale: scale,
-    translateX: `-${windowWidth / 2 - (windowHeight / logoDimensions - 1) * logoDimensions / 3}px`,
-    transition: { duration: 1 }
-  }
-
-  const bottomOpen = {
-    scale: 0.5,
-    translateY: `-${logoDimensions}px`,
-    transition: { duration: 1 }
-  }
+  const {windowHeight, windowWidth, logoDimensions, scale} = useContext(DimContext);
 
 	const openVariants = {
-    open: (windowWidth >= 796) ? sideOpen : bottomOpen,
+    open: {
+      scale: scale,
+      translateX: `-${windowWidth / 2 - (windowHeight / logoDimensions - 1) * logoDimensions / 3}px`,
+      transition: { duration: 1 }
+    },
     close: {
 			scale: 1.0,
 			translateX: `-${logoDimensions / 2}px`,

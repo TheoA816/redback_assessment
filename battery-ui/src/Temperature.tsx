@@ -12,9 +12,8 @@ interface TemperatureProps {
 const Temperature = ({ temp, open }: TemperatureProps) => {
 
   const { windowWidth } = useContext(DimContext); // could use media query but already have this
-  const MotionLiveValue = motion(LiveValue);  // custom framer motion component
 
-  const sideVariants = {
+  const openVariants = {
     open: {
 			translateX: 0,
       transition: { duration: 1, delay: 0.2 }
@@ -25,29 +24,16 @@ const Temperature = ({ temp, open }: TemperatureProps) => {
     },
   }
 
-  const bottomVariants = {
-    open: {
-      translateX: `-50%`,
-      translateY: `-60vh`,
-      transition: { duration: 1, delay: 0.2 }
-		},
-    close: {
-      translateX: `-50%`,
-			translateY: 0,
-      transition: { duration: 1 }
-    },
-  }
-
   return (
     <motion.div className='temp-container'
       animate={ open ? "open": "close" }
-      variants={ (windowWidth >= 796) ? sideVariants : bottomVariants }
+      variants={ openVariants }
       initial={false}
     >
       <motion.p className='value-title'>
           Live Battery Temperature
       </motion.p>
-      <MotionLiveValue temp={temp}/>
+      <LiveValue temp={temp}/>
     </motion.div>
   )
 }
