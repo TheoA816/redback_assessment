@@ -6,9 +6,9 @@ interface TemperatureProps {
   temp: number;
 }
 
-function LiveValue({ temp } : TemperatureProps) {
+function LiveValue({ temp }: TemperatureProps) {
 
-  const interval = 666;
+  const interval = 666; // change accordingly based on data_emulator
   
   // to change color smoothly
   const [perc, setPerc] = useState(-1);
